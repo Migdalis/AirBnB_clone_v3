@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-View for City objects that handles all default RESTFul API actions
+View for Place objects that handles all default RESTFul API actions
 """
 from os import abort
 from models.place import Place
