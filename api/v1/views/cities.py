@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-View for State objects that handles all default RESTFul API actions
+View for City objects that handles all default RESTFul API actions
 """
 from os import abort
 from models.state import State
