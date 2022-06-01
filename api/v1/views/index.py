@@ -13,12 +13,16 @@ def status():
     data = {"status": "OK"}
     return jsonify(data)
 
+
 @app_views.route('/stats', strict_slashes=False)
 def count_all():
-    return jsonify({"amenities": storage.count("Amenity"),
-                    "cities": storage.count("City"),
-                    "places": storage.count("Place"),
-                    "reviews": storage.count("Review"),
-                    "states": storage.count("State"),
-                    "users": storage.count("User")
-                    })
+    """Return a JSON that contains the number of each objects by type"""
+    data = {
+        "amenities": storage.count("Amenity"),
+        "cities": storage.count("City"),
+        "places": storage.count("Place"),
+        "reviews": storage.count("Review"),
+        "states": storage.count("State"),
+        "users": storage.count("User")
+    }
+    return jsonify(data)
