@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
 from api.v1.views import app_views
-from flask import Flask
+from flask import Flask, jsonify, make_response
 from models import storage
 import os
 
@@ -17,6 +17,13 @@ API_PORT = os.getenv('HBNB_API_PORT', default='5000')
 def close_storage(self):
     """Close current session"""
     storage.close()
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    """Handle error not found"""
+    err_msg = {"error": "Not found"}
+    return make_response(jsonify(err_msg), 404)
 
 
 if __name__ == "__main__":
